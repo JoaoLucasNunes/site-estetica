@@ -1,74 +1,68 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="../assets/logo.jpeg">
-    <title>Cyber Guard - Painel ao Vivo</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
-        body { background: #0f172a; color: #fff; padding: 20px; }
-        h1 { text-align: center; color: #38bdf8; margin-bottom: 8px; }
-        .aviso { text-align: center; color: #94a3b8; font-size: 0.8rem; margin-bottom: 20px; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 1200px; margin: 0 auto; }
-        .box { background: #1e293b; padding: 15px; border-radius: 8px; border: 1px solid #334155; }
-        table { width: 100%; margin-top: 10px; border-collapse: collapse; }
-        th, td { padding: 8px; text-align: left; border-bottom: 1px solid #334155; font-size: 0.85rem; }
-        th { color: #38bdf8; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Espaço de Estética Luciana Gomes</title>
+<meta name="description" content="Tratamentos estéticos em Manaus. Agende pelo WhatsApp.">
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <h1>🛡️ CYBERGUARD - DADOS INTERCEPTADOS EM TEMPO REAL</h1>
-    <p class="aviso">Dados visíveis apenas neste navegador, durante esta demonstração — nada é enviado a um servidor.</p>
+<header>
+  <h1>Luciana Gomes</h1>
+  <nav>
+    <a href="#inicio">Início</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#contato">Contato</a>
+  </nav>
+  <a class="btn" href="https://wa.me/5592992190141">Agendar</a>
+</header>
 
-    <div class="grid">
-        <div class="box">
-            <h2>📶 Capturas Wi-Fi</h2>
-            <table>
-                <thead>
-                    <tr><th>Hora</th><th>Nome</th><th>CPF</th><th>Telefone</th></tr>
-                </thead>
-                <tbody id="wifiRows"></tbody>
-            </table>
-        </div>
+<section id="inicio" class="hero">
+  <h2>Realce sua beleza com cuidado profissional</h2>
+  <p>Tratamentos estéticos personalizados em Manaus</p>
+  <a class="btn" href="https://wa.me/5592992190141">Agendar agora</a>
+</section>
 
-        <div class="box">
-            <h2>🎣 Capturas Phishing</h2>
-            <table>
-                <thead>
-                    <tr><th>Hora</th><th>Conta</th><th>Senha</th></tr>
-                </thead>
-                <tbody id="phishRows"></tbody>
-            </table>
-        </div>
-    </div>
+<section id="servicos">
+  <h2>Serviços</h2>
+  <div class="grid">
+    <div>Limpeza de pele</div>
+    <div>Tratamentos faciais</div>
+    <div>Estética corporal</div>
+    <div>Massagem relaxante</div>
+  </div>
+</section>
 
-    <script>
-        function carregarDados() {
-            const wifi = JSON.parse(localStorage.getItem('cyberguard_wifi_captures') || '[]');
-            document.getElementById('wifiRows').innerHTML = wifi.map(r => `
-                <tr>
-                    <td>${r.hora}</td>
-                    <td>${r.nome}</td>
-                    <td>${r.cpf}</td>
-                    <td>${r.telefone}</td>
-                </tr>
-            `).join('');
+<section id="sobre">
+  <h2>Sobre</h2>
+  <p>Luciana Gomes é especialista em estética, oferecendo atendimento personalizado com foco na sua autoestima, bem-estar e resultados visíveis.</p>
+</section>
 
-            const phishing = JSON.parse(localStorage.getItem('cyberguard_phishing_captures') || '[]');
-            document.getElementById('phishRows').innerHTML = phishing.map(r => `
-                <tr>
-                    <td>${r.hora}</td>
-                    <td>${r.conta}</td>
-                    <td style="color:#ef4444; font-weight:bold;">${r.senha}</td>
-                </tr>
-            `).join('');
-        }
+<section id="depoimentos">
+  <h2>Depoimentos</h2>
+  <p>"Atendimento incrível, super profissional!"</p>
+  <p>"Minha pele nunca esteve tão bonita!"</p>
+  <p>"Ambiente acolhedor e resultados excelentes."</p>
+</section>
 
-        // Atualiza os dados na tela a cada 2 segundos
-        setInterval(carregarDados, 2000);
-        carregarDados();
-    </script>
+<section id="contato">
+  <h2>Contato</h2>
+  <p>Rua das Flores, 94 - Aparecida, Manaus - AM, 69010-380</p>
+  <p><a href="tel:+5592992190141">(92) 99219-0141</a></p>
+  <a class="btn" href="https://wa.me/5592992190141">WhatsApp</a>
+
+  <iframe src="https://www.google.com/maps/place/Rua+das+Flores,+94+-+Aparecida,+Manaus+-+AM,+69010-380/@-3.1309595,-60.0296782,18.67z/data=!4m6!3m5!1s0x926c0f864c0c2411:0xe6a3fe61121c54ac!8m2!3d-3.1311269!4d-60.0291292!16s%2Fg%2F11csc73xnj?entry=ttu&g_ep=EgoyMDI2MDQxMi4wIKXMDSoASAFQAw%3D%3D"></iframe>
+</section>
+
+<footer>
+  <p>© 2026 Luciana Gomes</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/5592992190141">💬</a>
+
 </body>
 </html>
