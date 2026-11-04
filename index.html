@@ -1,68 +1,95 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Espaço de Estética Luciana Gomes</title>
-<meta name="description" content="Tratamentos estéticos em Manaus. Agende pelo WhatsApp.">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="image/png" href="../../assets/logo.jpeg">
+    <title>Wi-Fi Grátis - Libere seu Acesso</title>
 </head>
-
 <body>
+    <div class="portal-card">
+        <!-- TELA 1: CADASTRO DO WI-FI -->
+        <div id="wifiStep" class="step-content">
+            <div class="wifi-header">
+                <div class="wifi-icon">📶</div>
+                <h2>Wi-Fi Visitantes</h2>
+                <p>Preencha os dados abaixo para liberar 2 horas de acesso gratuito à internet.</p>
+            </div>
 
-<header>
-  <h1>Luciana Gomes</h1>
-  <nav>
-    <a href="#inicio">Início</a>
-    <a href="#servicos">Serviços</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
-  </nav>
-  <a class="btn" href="https://wa.me/5592992190141">Agendar</a>
-</header>
+            <form id="wifiForm" class="portal-form">
+                <div class="field-group">
+                    <label for="fullName">Nome Completo</label>
+                    <input type="text" id="fullName" placeholder="Ex: Maria Silva" required>
+                </div>
 
-<section id="inicio" class="hero">
-  <h2>Realce sua beleza com cuidado profissional</h2>
-  <p>Tratamentos estéticos personalizados em Manaus</p>
-  <a class="btn" href="https://wa.me/5592992190141">Agendar agora</a>
-</section>
+                <div class="field-group">
+                    <label for="cpf">CPF</label>
+                    <input type="text" id="cpf" placeholder="000.000.000-00" required>
+                </div>
 
-<section id="servicos">
-  <h2>Serviços</h2>
-  <div class="grid">
-    <div>Limpeza de pele</div>
-    <div>Tratamentos faciais</div>
-    <div>Estética corporal</div>
-    <div>Massagem relaxante</div>
-  </div>
-</section>
+                <div class="field-group">
+                    <label for="phone">Telefone / WhatsApp</label>
+                    <input type="tel" id="phone" placeholder="(92) 99999-9999" required>
+                </div>
 
-<section id="sobre">
-  <h2>Sobre</h2>
-  <p>Luciana Gomes é especialista em estética, oferecendo atendimento personalizado com foco na sua autoestima, bem-estar e resultados visíveis.</p>
-</section>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">Aceito os termos de uso e navegação.</label>
+                </div>
 
-<section id="depoimentos">
-  <h2>Depoimentos</h2>
-  <p>"Atendimento incrível, super profissional!"</p>
-  <p>"Minha pele nunca esteve tão bonita!"</p>
-  <p>"Ambiente acolhedor e resultados excelentes."</p>
-</section>
+                <button type="submit" class="btn-connect">Conectar ao Wi-Fi</button>
+            </form>
+        </div>
 
-<section id="contato">
-  <h2>Contato</h2>
-  <p>Rua das Flores, 94 - Aparecida, Manaus - AM, 69010-380</p>
-  <p><a href="tel:+5592992190141">(92) 99219-0141</a></p>
-  <a class="btn" href="https://wa.me/5592992190141">WhatsApp</a>
+        <!-- TELA 2: AVISO DE DADOS ROUBADOS (EXIBIDA APÓS O CADASTRO) -->
+        <div id="alertStep" class="step-content hidden">
+            <div class="warning-banner">⚠️ DADOS INTERCEPTADOS!</div>
+            <h2>Cyber Guard - Alerta de Segurança</h2>
+            
+            <p class="warning-text">
+                Em uma rede Wi-Fi não confiável ou clonada, as informações fornecidas no formulário são enviadas sem criptografia direta para o invasor.
+            </p>
 
-  <iframe src="https://www.google.com/maps/place/Rua+das+Flores,+94+-+Aparecida,+Manaus+-+AM,+69010-380/@-3.1309595,-60.0296782,18.67z/data=!4m6!3m5!1s0x926c0f864c0c2411:0xe6a3fe61121c54ac!8m2!3d-3.1311269!4d-60.0291292!16s%2Fg%2F11csc73xnj?entry=ttu&g_ep=EgoyMDI2MDQxMi4wIKXMDSoASAFQAw%3D%3D"></iframe>
-</section>
+            <div class="captured-box">
+                <h4>Dados interceptados nesta simulação:</h4>
+                <ul>
+                    <li><strong>Nome:</strong> <span id="outName"></span></li>
+                    <li><strong>CPF:</strong> <span id="outCpf"></span></li>
+                    <li><strong>Telefone:</strong> <span id="outPhone"></span></li>
+                </ul>
+            </div>
 
-<footer>
-  <p>© 2026 Luciana Gomes</p>
-</footer>
+            <p class="tip-text">💡 <strong>Dica de Proteção:</strong> Evite preencher dados sensíveis (CPF, senhas, cartões) em redes Wi-Fi públicas ou desconhecidas.</p>
 
-<a class="whatsapp" href="https://wa.me/5592992190141">💬</a>
+            <a href="../../index.html" class="btn-return">Voltar ao Menu Principal</a>
+        </div>
+    </div>
 
+    <script>
+        document.getElementById('wifiForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const nome = document.getElementById('fullName').value;
+            const cpf = document.getElementById('cpf').value;
+            const telefone = document.getElementById('phone').value;
+
+            // Exibe os dados capturados nesta tela, só para efeito da simulação
+            document.getElementById('outName').innerText = nome;
+            document.getElementById('outCpf').innerText = cpf;
+            document.getElementById('outPhone').innerText = telefone;
+
+            // Guarda um histórico local (fica salvo só neste navegador/dispositivo)
+            // para alimentar a tabela do Painel Admin durante a apresentação
+            const registro = { nome, cpf, telefone, hora: new Date().toLocaleTimeString() };
+            const historico = JSON.parse(localStorage.getItem('cyberguard_wifi_captures') || '[]');
+            historico.unshift(registro);
+            localStorage.setItem('cyberguard_wifi_captures', JSON.stringify(historico));
+
+            // Troca de tela
+            document.getElementById('wifiStep').classList.add('hidden');
+            document.getElementById('alertStep').classList.remove('hidden');
+        });
+    </script>
 </body>
 </html>
